@@ -13,7 +13,7 @@ console.log(
           "regular",
           "italic",
           "500",
-          "100"
+          444
         ]
       },
       {
@@ -22,7 +22,7 @@ console.log(
           "300italic",
           "regular",
           "italic",
-          "500",
+          500,
           "100"
         ]
       }

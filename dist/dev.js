@@ -50,10 +50,10 @@ var createCommonQuery = function createCommonQuery(_ref) {
   return "family=".concat(sFamily, ":ital,wght@").concat(styles.sort().join(";"), "&");
 };
 
-var assembleCommon = function assembleCommon(families) {
+var assembleCommon = function assembleCommon(families, display) {
   return 'https://fonts.googleapis.com/css2?' + families.map(function (familyStyles) {
     return createCommonQuery(familyStyles);
-  }).join('');
+  }).join('') + 'display=' + (display || 'auto');
 };
 
 var assembleFull = function assembleFull() {
