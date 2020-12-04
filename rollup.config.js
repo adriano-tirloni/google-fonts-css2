@@ -29,5 +29,5 @@ export default {
     resolve(),
     commonjs()
   ],
-  external: ['ajv']
+  external: []
 }
