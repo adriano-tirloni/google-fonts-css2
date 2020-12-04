@@ -68,3 +68,12 @@ let url = assembleCommon([
 ```
 
 Check it here: [https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,444;0,500;0,600..700;1,100..200;1,300;1,400;1,600..700&family=Roboto:ital,wght@0,100;0,400;0,500;1,300;1,400&display=auto](https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,444;0,500;0,600..700;1,100..200;1,300;1,400;1,600..700&family=Roboto:ital,wght@0,100;0,400;0,500;1,300;1,400&display=auto)
+
+## Example | Test
+Run:
+```bash
+git clone git@github.com:adriano-tirloni/google-fonts-css2.git
+yarn
+yarn build:dev
+node ./src/example.js
+```
