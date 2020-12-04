@@ -1,10 +1,19 @@
 {
   "name": "google-fonts-css2",
   "version": "1.0.0",
+  "private": false,
   "description": "A helper package to interact with google fonts API.",
   "author": "Adriano Tirloni",
   "license": "MIT",
-  "repository": "adriano-tirloni/google-fonts-css2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adriano-tirloni/google-fonts-css2.git"
+  },
+  "homepage": "https://github.com/adriano-tirloni/google-fonts-css2",
+  "bugs": {
+    "url": "https://github.com/adriano-tirloni/google-fonts-css2/issues",
+    "email": "tirloni.adriano@gmail.com"
+  },
   "main": "index.js",
   "engines": {
     "node": ">=8",
