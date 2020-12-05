@@ -1,6 +1,6 @@
 # Google Fonts CSS2
 
-This package is supposed to be an agnostic and fast helper package to interact with Google Gonts API version  2.
+This package is supposed to be an agnostic and fast helper package to interact with Google Fonts API version  2.
 
 ### URL Builder:
 
