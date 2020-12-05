@@ -34,7 +34,6 @@ URL Builder for V2 has 2 functions:
 [https://fonts.google.com/variablefonts](https://fonts.google.com/variablefonts)
 
 
-
 ## Usage:
 ```javascript
 const { assembleCommon } =  require("google-fonts-css2"
@@ -43,32 +42,33 @@ import { assembleCommon } from "google-fonts-css2"
 
 // assembleCommon(Array:families, String:display)
 
-let url = assembleCommon([
-	{
-		family: "Cabin", //Family Name
-		styles: [
-			"600..700", //Range, if family supports it.
-			"100..200italic", //Range with italic
-			"300italic", //Weight with italic
-			"regular", 	// Shortcut to 400
-			"italic",	//Shortcut to 400 Italic
-			"500", //regular with weight
-			444	//regular weight for variable font
-		]
-	},
-	{
-		family: "Roboto", //Family Name - Roboto doesn't support ranges
-		styles: [
-			"300italic", //Weight with italic
-			"regular", 	// Shortcut to 400
-			"italic",	//Shortcut to 400 Italic
-			"500",
-			100
-		]
-	},
-], 'swap') //display style
+  let url = assembleCommon([
+    {
+      family: "Cabin",    // Family Name
+      styles: [
+        "600..700",       // Range, if family supports it.
+        "100..200italic", // Range with italic
+        "300italic",      // Weight with italic
+        "regular",        // Shortcut to 400
+        "italic",         // Shortcut to 400 Italic
+        "500",            // Regular with weight
+        444               // Regular weight for variable font
+      ]
+    },
+    {
+      family: "Roboto",   // Family Name - Roboto doesn't support ranges
+      styles: [
+        "300italic",      // Weight with italic
+        "regular",        // Shortcut to 400
+        "italic",         // Shortcut to 400 Italic
+        "500",
+        100
+      ]
+    },
+  ], 'swap')              // Display Style
 
-//The output will be:
+
+// The output will be:
 "https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,444;0,500;0,600..700;1,100..200;1,300;1,400;1,600..700&family=Roboto:ital,wght@0,100;0,400;0,500;1,300;1,400&display=auto"
 ```
 
