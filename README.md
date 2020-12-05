@@ -2,15 +2,20 @@
 
 This package is supposed to be an agnostic and fast helper package to interact with Google Fonts API version  2.
 
+**`React Component`: [https://github.com/adriano-tirloni/react-google-fonts-css2](https://github.com/adriano-tirloni/react-google-fonts-css2)**
+
+
 ### URL Builder:
 
 URL Builder for V2 has 2 functions:
 `assembleCommom` - working 
 `assembleFull` - to be developed as needed
 
-**`assembleCommon`**: This function works as described below, and will request fonts with styles varying on **weight** and being **italic**. It was developed to fast, not to include all possible scenarios. For that there is the `assembleFull` function.
 
-**`assembleFull`**: [not developed] - This function will take a different structure from assembleCommon to be able to render the full spec of Google Font API axis:
+1) **`assembleCommon`**: This function works as described below, and will request fonts with styles varying on **weight** and being **italic**. It was developed to be fast and not to include all possible scenarios. For the full flexible API there is the `assembleFull` function.
+
+
+2) **`assembleFull`**: **not developed** - This function will take a different structure from assembleCommon to be able to render the full spec of Google Font API axis:
 
  - Italic - `ital`
  - Optical Size - `opsz`
