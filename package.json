@@ -21,7 +21,8 @@
         "import": "./dist/esm/index.js"
     },
     "scripts": {
-        "release": "yarn build:dev && yarn build:prod",
+        "examples-esm": "node ./examples/esm/examples.mjs",
+        "examples-cjs": "node ./examples/cjs/examples.cjs",
         "build": "rollup -c && bash ./postbuild"
     },
     "devDependencies": {

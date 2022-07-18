@@ -1,4 +1,4 @@
-import { getGoogleFontsUrl, getGoogleFontsUrlSimple } from "../dist/esm/index.js"
+import { getGoogleFontsUrl, getGoogleFontsUrlSimple } from "../../dist/esm/index.js"
 
 printThisExample(
   "Material Icons",
