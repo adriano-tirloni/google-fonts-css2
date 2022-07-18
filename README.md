@@ -41,10 +41,40 @@ Gimme **Open Sans**, from **light to bold**, **italic**. **condensed** and **nor
 ## Get Started
 Writing docs...
 
+```javascript
+import { getGoogleFontsUrl, getGoogleFontsUrlSimple } from "google-fonts-css2"
+```
+or
+```javascript
+const { getGoogleFontsUrl, getGoogleFontsUrlSimple } = require("google-fonts-css2")
+```
+
 ### Functions
 ```javascript
-  getGoogleFontsUrl([
-      {family: 'Material Icons', styles: [ {wght: '500', wght: '501'} ]} ], 'swap')
+
+getGoogleFontsUrlSimple("Roboto Flex,bold&black")
+getGoogleFontsUrlSimple("Roboto Flex,400&500&700,italic")
+
+getGoogleFontsUrl(
+  [
+    {
+      family: 'Material Icons',
+      styles: [
+        { wght: '500', wght: '501' }
+      ]
+    }
+  ],
+  'swap'
+)
+      
+getGoogleFontsUrl([
+  {
+    family: 'Roboto Flex',
+    styles: [
+      { weight: '100..500', width: [-10, 0] }
+    ]
+  }
+], 'swap')
 ```
 
 ## Input Validation
