@@ -16,8 +16,7 @@ if (fs.existsSync("./dist") && fs.readdirSync("./dist").length){
 }
 
 export default [
-  exportConfig({ 
-    minify: false, 
+  ...exportConfig({ 
     config: {
       output: {
         file: `./dist/esm/${outputFileName}`,
@@ -27,42 +26,42 @@ export default [
       }
     }
   }),
-  exportConfig({ 
-    minify: true, 
+  ...exportConfig({ 
     config: {
       output: {
-        file: `./dist/esm/${outputFileName}`,
-        format: 'esm',
-        exports: 'named',
-        preferConst: true,
-      }
+        file: `./dist/umd/${outputFileName}`,
+        format: 'umd',
+        name
+      },
     }
   }),
-    exportConfig({ 
-      minify: false, 
-      config: {
-        output: {
-          file: `./dist/umd/${outputFileName}`,
-          format: 'umd',
-          name
-        },
+  ...exportConfig({ 
+    config: {
+      output: {
+        file: `./dist/cjs/${outputFileName}`,
+        format: 'cjs',
+        name
+      },
     }
   })
 ];
 
+function exportConfig ({ config }) {
 
-function exportConfig ({ minify, config }) {
-
-  return {
-    input: './src/index.js',
-    ...config,
-    output: {     
-      ...config.output,
-      file: `${config.output.file}${minify ? '.min.js' : '.js'}`,
-      banner,
-    },
-    plugins: [
-      minify && terser()
-    ]
+  let baseConfig = ({ minify }) => {
+    return {
+      input: './src/index.js',
+      ...config,
+      output: {     
+        ...config.output,
+        file: `${config.output.file}${minify ? '.min.js' : '.js'}`,
+        banner,
+      },
+      plugins: [
+        minify && terser()
+      ]
+    }
   }
+
+  return [baseConfig({ minify: true }), baseConfig({ minify: false })]
 }

@@ -1,4 +1,8 @@
 // google-fonts-css2 v2.0.0 Copyright (c) 2022 Adriano Tirloni
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
 const GOOGLE_FONT_API_URI = 'https://fonts.googleapis.com/css2?';
 
 const AXIS_NAME_MAPPING = {
@@ -279,4 +283,5 @@ function sanitizeW(weight_or_width, MAPPING) {
   }
 }
 
-export { getGoogleFontsUrl, getGoogleFontsUrlSimple };
+exports.getGoogleFontsUrl = getGoogleFontsUrl;
+exports.getGoogleFontsUrlSimple = getGoogleFontsUrlSimple;
