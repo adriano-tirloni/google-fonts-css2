@@ -1,8 +1,8 @@
 {
   "name": "google-fonts-css2",
-  "version": "1.0.3",
-  "private": false,
-  "description": "A helper package to interact with google fonts API.",
+  "type": "module",
+  "version": "2.0.0",
+  "description": "A Javascript package to integrate with Google Fonts API.",
   "author": "Adriano Tirloni",
   "license": "MIT",
   "repository": {
@@ -14,7 +14,7 @@
     "url": "https://github.com/adriano-tirloni/google-fonts-css2/issues",
     "email": "tirloni.adriano@gmail.com"
   },
-  "main": "index.js",
+  "main": "index.mjs",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
@@ -23,10 +23,9 @@
     "prepublishOnly": "yarn release",
     "release": "yarn build:dev && yarn build:prod",
     "build:prod": "NODE_ENV=production rollup -c",
-    "build:dev": "NODE_ENV=development rollup -c"
+    "build:dev": "NODE_ENV=development rollup -c",
+    "example": ""
   },
-  "dependencies": {},
-  "peerDependencies": {},
   "devDependencies": {
     "@babel/core": "^7.11.4",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
@@ -41,5 +40,12 @@
   "files": [
     "dist"
   ],
-  "keywords": ["google", "google fonts", "fonts", "css2", "google fonts api", "google fonts url"]
+  "keywords": [
+    "google",
+    "google fonts",
+    "fonts",
+    "css2",
+    "google fonts api",
+    "google fonts url"
+  ]
 }

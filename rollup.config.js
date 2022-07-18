@@ -1,33 +1,41 @@
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
-import replace from "rollup-plugin-replace";
-import babel from 'rollup-plugin-babel';
+import dts from 'rollup-plugin-dts'
+import copy from 'rollup-plugin-copy'
 
-const NODE_ENV = process.env.NODE_ENV || "development";
-const outputFile = NODE_ENV === "production" ? "./dist/prod.js" : "./dist/dev.js";
+import { writeFile, mkdir } from 'fs/promises'
 
-export default {
-  input: 'src/index.js',
-  output: [
-    {
-      file: outputFile,
-      format: 'cjs',
-      exports: 'named',
-      sourcemap: true,
-      strict: false
+function createCommonJsPackage() {
+  const pkg = { type: 'commonjs' }
+  return {
+    name: 'cjs-package',
+    buildEnd: async () => {
+      await mkdir('./dist/cjs', { recursive: true })
+      await writeFile('./dist/cjs/package.json', JSON.stringify(pkg, null, 2))
     }
-  ],
-  plugins: [
-    replace({
-      "process.env.NODE_ENV": JSON.stringify(NODE_ENV)
-    }),
-    babel({
-      exclude: "node_modules/**",
-      presets: ["@babel/preset-env"],
-      plugins: ["@babel/plugin-proposal-class-properties"]
-    }),
-    resolve(),
-    commonjs()
-  ],
-  external: []
+  }
 }
+
+export default [
+  {
+    input: './src/my-lib.js',
+    plugins: [
+      copy({
+        targets: [
+          { src: './package.json', dest: 'dist' }
+        ]
+      }),
+      createCommonJsPackage()
+    ],
+    output: [
+      { format: 'es', file: './dist/esm/my-lib.js' },
+      { format: 'cjs', file: './dist/cjs/my-lib.js' }
+    ]
+  },
+  {
+    input: './src/my-lib.js',
+    plugins: [ dts() ],
+    output: {
+      format: 'es',
+      file: './dist/my-lib.d.ts'
+    }
+  }
+]
