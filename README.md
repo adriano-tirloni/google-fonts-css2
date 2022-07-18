@@ -1,7 +1,7 @@
 # 📃GOOGLE FONT CSS 2
+## A Javascript package to integrate with Google Fonts API.
 
 ⚠️ *If you were using the v1 of this package check the new API below, it is slightly different. *
-#### A Javascript package to integrate with Google Fonts API.
 
 This is a package with a **single purpose**: To provide an easy interface to create the latest version of a Google Fonts CSS2 URL.
 

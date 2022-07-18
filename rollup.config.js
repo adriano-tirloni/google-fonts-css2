@@ -2,9 +2,7 @@
 import { terser } from "rollup-plugin-terser";
 
 //Consts
-const isProduction = process.env.NODE_ENV === 'production'
 const outputFileName = 'index'
-const outputFile = isProduction ? "./dist/prod.js" : "./dist/dev.js";
 const name = 'GoogleFontsCSS2'
 
 //Other
@@ -17,7 +15,43 @@ if (fs.existsSync("./dist") && fs.readdirSync("./dist").length){
   fs.rmSync("./dist", {recursive: true, force: true});
 }
 
-const exportConfig = ({ minify, config }) => {
+export default [
+  exportConfig({ 
+    minify: false, 
+    config: {
+      output: {
+        file: `./dist/esm/${outputFileName}`,
+        format: 'esm',
+        exports: 'named',
+        preferConst: true,
+      }
+    }
+  }),
+  exportConfig({ 
+    minify: true, 
+    config: {
+      output: {
+        file: `./dist/esm/${outputFileName}`,
+        format: 'esm',
+        exports: 'named',
+        preferConst: true,
+      }
+    }
+  }),
+    exportConfig({ 
+      minify: false, 
+      config: {
+        output: {
+          file: `./dist/umd/${outputFileName}`,
+          format: 'umd',
+          name
+        },
+    }
+  })
+];
+
+
+function exportConfig ({ minify, config }) {
 
   return {
     input: './src/index.js',
@@ -32,73 +66,3 @@ const exportConfig = ({ minify, config }) => {
     ]
   }
 }
-
-export default [
-  exportConfig({ 
-    minify: false, 
-    config: {
-      output: {
-        file: `./dist/esm/${outputFileName}`,
-        format: 'esm',
-        exports: 'named',
-        preferConst: true,
-      }
-    }}),
-  exportConfig({ 
-    minify: true, 
-    config: {
-      output: {
-        file: `./dist/esm/${outputFileName}`,
-        format: 'esm',
-        exports: 'named',
-        preferConst: true,
-      }
-    }}),
-    exportConfig({ 
-      minify: false, 
-      config: {
-        output: {
-          file: `./dist/umd/${outputFileName}`,
-          format: 'umd',
-          name
-        },
-      }}),
-  // {
-  //   // ES5
-  //   input: './src/main.js',
-  //   plugins: [
-  //     getBabelOutputPlugin({
-  //       presets: ['@babel/preset-env']
-  //     })
-  //   ],
-  //   output: {
-  //     file: './build/bundle-es5.js',
-  //     format: 'cjs',
-  //     name
-  //   }
-  // }
-];
-
-
-// export default {
-//   input: 'src/index.js',
-//   output: [
-//     {
-//       file: outputFile,
-//       format: 'cjs',
-//       exports: 'named',
-//       sourcemap: true,
-//       strict: false
-//     }
-//   ],
-//   plugins: [
-//     replace({
-//       "process.env.NODE_ENV": JSON.stringify(NODE_ENV)
-//     }),
-//     babel({
-//       exclude: "node_modules/**",
-//       presets: ["@babel/preset-env"],
-//     })
-//   ],
-//   external: []
-// }
