@@ -38,9 +38,15 @@ Gimme **Open Sans**, from **light to bold**, **italic**. **condensed** and **nor
 
 ---
 ## Get Started
-asd
+Writing docs...
+
+### Functions
+```javascript
+  getGoogleFontsUrl([
+      {family: 'Material Icons', styles: [ {wght: '500', wght: '501'} ]} ], 'swap')
+```
 
 ## Input Validation
-✅ Validates the existence of the directive axis used. (`weight or wght`, `opticalSize or opsz`)
-✅ Ignores duplicate directives (`wght`) and uses the latest one.
-❌ Does **not** validate if the font requested has the directive in its options. Eg: If you request **Open Sans**, asking for `slant -10` the URL will properly be created **BUT** Google will return a `400` answer as the **slant** directive is not avaliable for **Open Sans**
+- ✅ Validates the existence of the directive axis used. (`weight or wght`, `opticalSize or opsz`)
+- ✅ Ignores duplicate directives (`wght`) and uses the latest one.
+- ❌ Does **not** validate if the font requested has the directive in its options. Eg: If you request **Open Sans**, asking for `slant -10` the URL will properly be created **BUT** Google will return a `400` answer as the **slant** directive is not avaliable for **Open Sans**
