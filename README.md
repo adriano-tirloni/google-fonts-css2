@@ -81,6 +81,7 @@ This function calls getGoogleFontsUrl but with simpler argurments and reduced op
 ##### Examples:
 ```javascript
 getGoogleFontsUrlSimple('Open Sans, regular')
+
 ```
 
 #### getGoogleFontsUrl
