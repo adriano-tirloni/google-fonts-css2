@@ -23,7 +23,7 @@ Gimme **Open Sans**, from **light to bold**, **italic**. **condensed** and **nor
 ------------
 
 - **[Get Started](#get-started)**
-	- **NodeJS, Browser, Common-JS, ES-Modules**
+	- **[NodeJS, Browser, Common-JS, ES-Modules](#nodejs-browser-common-js-es-modules)**
 	- **Functions**
 	- **Android, IOS & Flutter**
 - **Google Fonts**
@@ -38,7 +38,11 @@ Gimme **Open Sans**, from **light to bold**, **italic**. **condensed** and **nor
 
 ---
 ## Get Started
-Writing docs...
+### NodeJS, Browser, Common-JS, ES-Modules
+
+This package is bundled to be used in multiple environments (ESM, CJS, UMD).
+Check the `/dist` folder for enviroment options.
+You can seamlessly `import` or `require` it.
 
 ```javascript
 import { getGoogleFontsUrl, getGoogleFontsUrlSimple } from "google-fonts-css2"
