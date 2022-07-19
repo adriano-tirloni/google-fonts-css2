@@ -8,7 +8,7 @@ export const AXIS_NAME_MAPPING = {
     width: 'wdth',
     ascenderHeight: 'YTAS',
     casual: 'CASL',
-    counter_width: 'XTRA',
+    counterWidth: 'XTRA',
     cursive: 'CRSV',
     descenderDepth: 'YTDE',
     figureHeight: 'YTFI',
