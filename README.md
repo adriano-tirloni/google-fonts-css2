@@ -221,8 +221,7 @@ Variable or Regular fonts may have any number of directive axes.
 	
 Google API will only accept the axis symbol on a specific order, to make readability better this package will allow the use of the **`case-sensitive symbol`** AND/OR **`human readable name`**
 
-#### The avaliable directives are:
-	
+#### The avaliable directives symbol and human names are below:
 ```yaml
 italic: ital
 opticalSize: opsz
@@ -244,6 +243,7 @@ thickStroke: XOPQ
 thinStroke: YOPQ
 uppercaseHeight: YTUC	
 ```
+You can read about each on: [https://fonts.google.com/variablefonts#axis-definitions](https://fonts.google.com/variablefonts#axis-definitions)
 	
 ## Input Validation
 - ✅ Validates the existence of the directive axis used. (`weight or wght`, `opticalSize or opsz`)
