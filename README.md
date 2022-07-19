@@ -74,12 +74,13 @@ or
 ### Functions
 #### 📜 getGoogleFontsUrlSimple
 This function calls getGoogleFontsUrl but with simpler argurments and reduced options.
-- Arguments: Any number of strings or objects.
-- Strings: Directive family style strings - All spaces and cases are removed from the string, except for the Font Family name.
-- Objects: Directive family style objects or a options object.
+- **Arguments**: Any number of strings or objects.
+- **Strings**: Directive family style strings - All spaces and cases are removed from the string, except for the Font Family name.
 
-Strings format: "`<case-sensitive-spaced font name>`,`<weights>`,`<?italic> or <?widths>`"
-Objects
+- **Objects**: Directive family style objects or a options object.
+
+**Strings format**: "`<case-sensitive-spaced font name>`,`<weights>`,`<?italic> or <?widths>`"
+**Objects**
 1) Options object: {display: <string>, onlyThisCharacters: <string>}
 2) Font Style object: Same as getGoogleFontsUrl function (this allow full directive request).
 	
