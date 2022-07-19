@@ -78,19 +78,51 @@ This function calls getGoogleFontsUrl but with simpler argurments and reduced op
 - Strings: Directive family style strings - All spaces and cases are removed from the string, except for the Font Family name.
 - Objects: Directive family style objects or a options object.
 
-##### Examples:
+##### Examples (open urls in browser to check it):
 ```javascript
+//Open Sans - Named regular weight
 getGoogleFontsUrlSimple('Open Sans, regular')
 //=> https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=auto
 
+//Open Sans - Named regular weight, with otpions object
+getGoogleFontsUrlSimple(
+  {display: "swap", onlyThisCharacters: "abcd"}, 
+  "Open Sans, regular"
+)
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap&text=abcd
+
+//Open Sans - Numbered regular weight
 getGoogleFontsUrlSimple("Open Sans, 400")
 //=> https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=auto
 
+//Open Sans - Multiple Named and Numbered weight
 getGoogleFontsUrlSimple("Open Sans, regular & 600")
 //=> https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Open+Sans:wght@600&display=auto
 
+//Open Sans - Multiple Named weight
 getGoogleFontsUrlSimple("Open Sans, regular & semibold & bold")
 //=> https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Open+Sans:wght@600&family=Open+Sans:wght@700&display=auto
+
+//Open Sans - Ranged weight
+getGoogleFontsUrlSimple("Open Sans, 300..800")
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=auto
+
+//Open Sans - Regular Italic
+getGoogleFontsUrlSimple("Open Sans, 400, italic")
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,400&display=auto
+
+//Open Sans - Full weight range, italic and named width
+getGoogleFontsUrlSimple("Open Sans, 300..800, italic, condensed & normal")
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@1,75,300..800&family=Open+Sans:ital,wdth,wght@1,100,300..800&display=auto
+
+//Open Sans - Full weight range, WITHOUT italic and named width
+getGoogleFontsUrlSimple("Open Sans, 300..800, condensed & semiCondensed & normal")
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75,300..800&family=Open+Sans:wdth,wght@87.5,300..800&family=Open+Sans:wdth,wght@100,300..800&display=auto
+
+//Open Sans - Full weight range, with italic and full ranged width
+getGoogleFontsUrlSimple("Open Sans, 300..800, 75..100, italic")
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@1,75..100,300..800&display=auto
+
 ```
 
 #### getGoogleFontsUrl
