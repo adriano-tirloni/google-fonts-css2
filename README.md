@@ -26,16 +26,16 @@ Gimme **Open Sans**, from **light to bold**, **italic**. **condensed** and **nor
 - **[Getting Started](#getting-started)**
 	- **[NodeJS, Browser, Common-JS, ES-Modules](#nodejs-browser-common-js-es-modules)**
 	- **[Functions](#functions)**
-	- **Android, IOS & Flutter**
+	- **[Android, IOS & Flutter](#android-ios--flutter)**
 - **Google Fonts**
-	- **Regular Fonts**
-	- **Variable Fonts**
-	- **Variable Fonts Options**
+	- **[Regular Fonts](#regular-fonts)**
+	- **[Variable Fonts](#variable-fonts)**
+	- **[Variable Fonts Options](#variable-fonts-options)**
 - **Google Material Symbols**
 	- **Variable Symbols Options**
 - **Google Material Icons**
 - **[Validations](#input-validation)**
-- **Examples**
+- **[Examples](#examples)**
 
 ---
 ## Getting Started
@@ -135,7 +135,7 @@ getGoogleFontsUrlSimple("Open Sans, 300..800, 75..100, italic")
 ```
 
 #### 📜 getGoogleFontsUrl
-This function is the full base function to construct the urls.
+The full base function to construct the urls.
 Check a live example here: [https://codepen.io/adrianotirloni/pen/wvmJxpG](https://codepen.io/adrianotirloni/pen/wvmJxpG)
 	
 - Arguments: An array of objects (Font Families), Display, OnlyThisCharacters
@@ -197,8 +197,59 @@ getGoogleFontsUrl([
   }
 ], 'swap')
 ```
+	
+### Android, IOS & Flutter
+Android, IOS and Flutter implementation are not the same as web implementation [https://developers.google.com/fonts/docs/android](https://developers.google.com/fonts/docs/android), so is out of the scope of this package.
+	
+(If you know a library for tose tools open a PR to this document listing it here)
+	
+## Google Fonts
+### Regular Fonts
+ Google Fonts has as of today **1429** font families, of those, **1176** are regular fonts.
+ Regular Fonts are those that don't have a variable directive axis, like `weight`.
+ 
+ As an example, a regular font will have `400`,`500`,`600` `weight`. 
+ A Font with a `variable weight axis` will have every integer from 400 to 600. (`401`, `476` ... `599`, `600`)
+	
+### Variable Fonts
+ A Variable Font can have one or multiple directive axis as a varaible axis. A variable font can have standard `weights` (`400`,`500`,`600`) but a variable `width` axis (from 1 to 150). This font will be considered variable.
+	
+You can check all variable fonts and their **directive axes** on this link: **[https://fonts.google.com/variablefonts](https://fonts.google.com/variablefonts)**
+	
+### Variable Fonts Options
+Variable or Regular fonts may have any number of directive axes.
+	
+Google API will only accept the axis symbol on a specific order, to make readability better this package will allow the use of the **`case-sensitive symbol`** AND/OR **`human readable name`**
 
+#### The avaliable directives are:
+	
+```yaml
+italic: ital
+opticalSize: opsz
+slant: slnt
+weight: wght
+width: wdth
+ascenderHeight: YTAS
+casual: CASL
+counterWidth: XTRA
+cursive: CRSV
+descenderDepth: YTDE
+figureHeight: YTFI
+fill: FILL
+grade: GRAD
+lowercaseHeight: YTLC
+monospace: MONO
+softness: SOFT
+thickStroke: XOPQ
+thinStroke: YOPQ
+uppercaseHeight: YTUC	
+```
+	
 ## Input Validation
 - ✅ Validates the existence of the directive axis used. (`weight or wght`, `opticalSize or opsz`)
 - ✅ Ignores duplicate directives (`wght`) and uses the latest one.
 - ❌ Does **not** validate if the font requested has the directive in its options. Eg: If you request **Open Sans**, asking for `slant -10` the URL will properly be created **BUT** Google will return a `400` answer as the **slant** directive is not avaliable for **Open Sans**
+	
+## Examples
+- HTML Import: [https://codepen.io/adrianotirloni/pen/ExEWbdd](https://codepen.io/adrianotirloni/pen/ExEWbdd)
+- Function use: [https://codepen.io/adrianotirloni/pen/wvmJxpG](https://codepen.io/adrianotirloni/pen/wvmJxpG)
