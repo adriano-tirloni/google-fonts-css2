@@ -1,4 +1,4 @@
-# 📃GOOGLE FONTS CSS 2
+# 📜GOOGLE FONTS CSS 2
 ## A Javascript package to integrate with Google Fonts API.
 
 ⚠️ _**If you were using the v1 of this package check the new API below, it is slightly different.**_ ⚠️
@@ -72,7 +72,7 @@ or
 `For HTML check the codepen:` [https://codepen.io/adrianotirloni/pen/ExEWbdd](https://codepen.io/adrianotirloni/pen/ExEWbdd)
 
 ### Functions
-#### getGoogleFontsUrlSimple
+#### 📜 getGoogleFontsUrlSimple
 This function calls getGoogleFontsUrl but with simpler argurments and reduced options.
 - Arguments: Any number of strings or objects.
 - Strings: Directive family style strings - All spaces and cases are removed from the string, except for the Font Family name.
@@ -133,7 +133,7 @@ getGoogleFontsUrlSimple("Open Sans, 300..800, 75..100, italic")
 //=> https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@1,75..100,300..800&display=auto
 ```
 
-#### getGoogleFontsUrl
+#### 📜 getGoogleFontsUrl
 
 
 ```javascript
