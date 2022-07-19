@@ -82,7 +82,7 @@ This function calls getGoogleFontsUrl but with simpler argurments and reduced op
 **Strings format**: "`<case-sensitive-spaced font name>`,`<weights>`,`<?italic> or <?widths>`"
 **Objects**
 1) Options object: {display: <string>, onlyThisCharacters: <string>}
-2) Font Style object: Same as getGoogleFontsUrl function (this allow full directive request).
+2) Font Style object: Same as [getGoogleFontsUrl function](#-getgooglefontsurl) (this allow full directive request).
 	
 ##### Examples (open urls in browser to check it):
 ```javascript
