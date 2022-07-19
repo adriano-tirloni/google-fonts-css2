@@ -75,13 +75,22 @@ or
 #### getGoogleFontsUrlSimple
 This function calls getGoogleFontsUrl but with simpler argurments and reduced options.
 - Arguments: Any number of strings or objects.
-- Strings: Directive family style strings
+- Strings: Directive family style strings - All spaces and cases are removed from the string, except for the Font Family name.
 - Objects: Directive family style objects or a options object.
 
 ##### Examples:
 ```javascript
 getGoogleFontsUrlSimple('Open Sans, regular')
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=auto
 
+getGoogleFontsUrlSimple("Open Sans, 400")
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=auto
+
+getGoogleFontsUrlSimple("Open Sans, regular & 600")
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Open+Sans:wght@600&display=auto
+
+getGoogleFontsUrlSimple("Open Sans, regular & semibold & bold")
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Open+Sans:wght@600&family=Open+Sans:wght@700&display=auto
 ```
 
 #### getGoogleFontsUrl
