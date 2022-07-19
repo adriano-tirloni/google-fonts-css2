@@ -1,7 +1,7 @@
 # 📜GOOGLE FONTS CSS 2
 ## A Javascript package to integrate with Google Fonts API.
 
-⚠️ _**If you were using the v1 of this package check the new API below, it is slightly different.**_ ⚠️
+`⚠️If you were using the v1 of this package check the new API below, it is slightly different.⚠️`
 
 - **Single purpose**: To provide an easy interface to create the latest version of a Google Fonts CSS2 URL.
 - No dependencies.
@@ -161,7 +161,9 @@ getGoogleFontsUrl([
   {
     family: 'Roboto Flex', 
     styles: [ 
-      {weight: '100..1000', width: [25, 150], slant: -5, figureHeight: 500},
+      {weight: '800..1000', width: [25, 150], slant: -5, figureHeight: 500},
+      {weight: 300},
+      {weight: 400},
     ]
   },
   {
