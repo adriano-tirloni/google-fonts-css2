@@ -1,13 +1,12 @@
 # 📃GOOGLE FONT CSS 2
 ## A Javascript package to integrate with Google Fonts API.
 
-⚠️ *If you were using the v1 of this package check the new API below, it is slightly different. *
+⚠️ _**If you were using the v1 of this package check the new API below, it is slightly different.**_ ⚠️
 
-This is a package with a **single purpose**: To provide an easy interface to create the latest version of a Google Fonts CSS2 URL.
-
+- **Single purpose**: To provide an easy interface to create the latest version of a Google Fonts CSS2 URL.
 - It adheres to the rules described on [the current Google Fonts Documentation (CSS2)](https://developers.google.com/fonts/docs/css2 "Google Fonts Documentation (CSS2)").
 - Works on browser and server side (**SSR**).
-- Can create** Material Symbols** and **Material Icons** URLs
+- Can create **Material Symbols** and **Material Icons** URLs
 
 Read on for more information. 
 Feel free to open issues or PRs.
@@ -23,7 +22,7 @@ Gimme **Open Sans**, from **light to bold**, **italic**. **condensed** and **nor
 
 ------------
 
-- **Get Started**
+- **[Get Started](#get-started)**
 	- **NodeJS, Browser, Common-JS, ES-Modules**
 	- **Functions**
 	- **Android, IOS & Flutter**
