@@ -1,6 +1,6 @@
 {
     "name": "google-fonts-css2",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "A Javascript package to integrate with Google Fonts API.",
     "author": "Adriano Tirloni",
     "license": "MIT",

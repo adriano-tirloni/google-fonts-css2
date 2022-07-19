@@ -1,4 +1,4 @@
-// google-fonts-css2 v2.0.1 Copyright (c) 2022 Adriano Tirloni
+// google-fonts-css2 v2.0.2 Copyright (c) 2022 Adriano Tirloni
 const GOOGLE_FONT_API_URI = 'https://fonts.googleapis.com/css2?';
 
 const AXIS_NAME_MAPPING = {

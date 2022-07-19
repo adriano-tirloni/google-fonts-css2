@@ -1,4 +1,4 @@
-// google-fonts-css2 v2.0.1 Copyright (c) 2022 Adriano Tirloni
+// google-fonts-css2 v2.0.2 Copyright (c) 2022 Adriano Tirloni
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
