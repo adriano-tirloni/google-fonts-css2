@@ -1,9 +1,10 @@
-# 📃GOOGLE FONT CSS 2
+# 📃GOOGLE FONTS CSS 2
 ## A Javascript package to integrate with Google Fonts API.
 
 ⚠️ _**If you were using the v1 of this package check the new API below, it is slightly different.**_ ⚠️
 
 - **Single purpose**: To provide an easy interface to create the latest version of a Google Fonts CSS2 URL.
+- No dependencies.
 - It adheres to the rules described on [the current Google Fonts Documentation (CSS2)](https://developers.google.com/fonts/docs/css2 "Google Fonts Documentation (CSS2)").
 - Works on browser and server side (**SSR**).
 - Can create **Material Symbols** and **Material Icons** URLs
@@ -22,9 +23,9 @@ Gimme **Open Sans**, from **light to bold**, **italic**. **condensed** and **nor
 
 ------------
 
-- **[Get Started](#get-started)**
+- **[Getting Started](#getting-started)**
 	- **[NodeJS, Browser, Common-JS, ES-Modules](#nodejs-browser-common-js-es-modules)**
-	- **Functions**
+	- **[Functions](#functions)**
 	- **Android, IOS & Flutter**
 - **Google Fonts**
 	- **Regular Fonts**
@@ -37,12 +38,27 @@ Gimme **Open Sans**, from **light to bold**, **italic**. **condensed** and **nor
 - **Examples**
 
 ---
-## Get Started
+## Getting Started
 ### NodeJS, Browser, Common-JS, ES-Modules
 
 This package is bundled to be used in multiple environments (ESM, CJS, UMD).
 Check the `/dist` folder for enviroment options.
-You can seamlessly `import` or `require` it.
+
+### Install
+
+```console
+npm i google-fonts-css2
+```
+```console
+yarn add google-fonts-css2
+```
+```html
+<!-- directly in browser, note the /dist/umd path -->
+<script src="https://cdn.jsdelivr.net/npm/google-fonts-css2@2.0.0/dist/umd/index.min.js"></script>
+```
+
+### Import
+You can seamlessly `import` or `require`:
 
 ```javascript
 import { getGoogleFontsUrl, getGoogleFontsUrlSimple } from "google-fonts-css2"
@@ -51,6 +67,9 @@ or
 ```javascript
 const { getGoogleFontsUrl, getGoogleFontsUrlSimple } = require("google-fonts-css2")
 ```
+or
+
+`For HTML check the codepen:` [https://codepen.io/adrianotirloni/pen/ExEWbdd](https://codepen.io/adrianotirloni/pen/ExEWbdd)
 
 ### Functions
 ```javascript
