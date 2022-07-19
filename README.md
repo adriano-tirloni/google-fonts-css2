@@ -72,6 +72,20 @@ or
 `For HTML check the codepen:` [https://codepen.io/adrianotirloni/pen/ExEWbdd](https://codepen.io/adrianotirloni/pen/ExEWbdd)
 
 ### Functions
+#### getGoogleFontsUrlSimple
+This function calls getGoogleFontsUrl but with simpler argurments and reduced options.
+- Arguments: Any number of strings or objects.
+- Strings: Directive family style strings
+- Objects: Directive family style objects or a options object.
+
+##### Examples:
+```javascript
+getGoogleFontsUrlSimple('Open Sans, regular')
+```
+
+#### getGoogleFontsUrl
+
+
 ```javascript
 
 getGoogleFontsUrlSimple("Roboto Flex,bold&black")
