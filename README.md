@@ -136,6 +136,7 @@ getGoogleFontsUrlSimple("Open Sans, 300..800, 75..100, italic")
 
 #### 📜 getGoogleFontsUrl
 This function is the full base function to construct the urls.
+Check a live example here: [https://codepen.io/adrianotirloni/pen/wvmJxpG](https://codepen.io/adrianotirloni/pen/wvmJxpG)
 	
 - Arguments: An array of objects (Font Families), Display, OnlyThisCharacters
 - Display: `'auto' | 'block' | 'swap' | 'fallback' | 'optional'`
