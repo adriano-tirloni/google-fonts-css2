@@ -109,7 +109,7 @@
       styleAxis.forEach((axis, i) => {
         let separator = styleAxis.length === i+1 ? '' : ',';
         axisString += axis[0] + separator;
-        valuesString += (Array.isArray(axis[1]) ?  axis[1].join('..') : axis[1])  + separator;
+        valuesString += (Array.isArray(axis[1]) ?  axis[1].sort((a,b) => a-b).join('..') : axis[1])  + separator;
       });
 
       familyString += axisString + '@' + valuesString;
