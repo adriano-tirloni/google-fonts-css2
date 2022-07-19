@@ -1,4 +1,9 @@
-# 📜GOOGLE FONTS CSS 2
+# 📜Google Fonts CSS2
+
+![npm](https://img.shields.io/badge/npm-v2.0.2-brightgreen)
+![install size](https://img.shields.io/badge/install%20size-3.2%20Kb-brightgreen)
+[![npm downloads](https://img.shields.io/npm/dm/google-fonts-css2.svg?style=flat-square)](https://npm-stat.com/charts.html?package=google-fonts-css2)
+
 ## A Javascript package to integrate with Google Fonts API.
 
 `⚠️If you were using the v1 of this package check the new API below, it is slightly different.⚠️`
