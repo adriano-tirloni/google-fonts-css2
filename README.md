@@ -258,3 +258,4 @@ You can read about each on: [https://fonts.google.com/variablefonts#axis-definit
 ## Examples
 - HTML Import: [https://codepen.io/adrianotirloni/pen/ExEWbdd](https://codepen.io/adrianotirloni/pen/ExEWbdd)
 - Function use: [https://codepen.io/adrianotirloni/pen/wvmJxpG](https://codepen.io/adrianotirloni/pen/wvmJxpG)
+- Open Sans and Cursive multiple usage example: [https://codepen.io/adrianotirloni/pen/gOemBxd](https://codepen.io/adrianotirloni/pen/gOemBxd)
