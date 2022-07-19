@@ -78,19 +78,28 @@ This function calls getGoogleFontsUrl but with simpler argurments and reduced op
 - Strings: Directive family style strings - All spaces and cases are removed from the string, except for the Font Family name.
 - Objects: Directive family style objects or a options object.
 
+Strings format: "`<case-sensitive-spaced font name>`,`<weights>`,`<?italic> or <?widths>`"
+Objects
+1) Options object: {display: <string>, onlyThisCharacters: <string>}
+2) Font Style object: Same as getGoogleFontsUrl function (this allow full directive request).
+	
 ##### Examples (open urls in browser to check it):
 ```javascript
 //Open Sans - Named regular weight
 getGoogleFontsUrlSimple('Open Sans, regular')
 //=> https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=auto
 
-//Open Sans - Named regular weight, with otpions object
+//Open Sans - Named regular weight, with options object
 getGoogleFontsUrlSimple(
   {display: "swap", onlyThisCharacters: "abcd"}, 
   "Open Sans, regular"
 )
 //=> https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap&text=abcd
 
+//Multiple arguments, multiple fonts, unordered
+getGoogleFontsUrlSimple("Open Sans, 300, italic", {display: "swap"}, "Lato, regular")
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&family=Lato:wght@400&display=swap	
+	
 //Open Sans - Numbered regular weight
 getGoogleFontsUrlSimple("Open Sans, 400")
 //=> https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=auto
@@ -122,7 +131,6 @@ getGoogleFontsUrlSimple("Open Sans, 300..800, condensed & semiCondensed & normal
 //Open Sans - Full weight range, with italic and full ranged width
 getGoogleFontsUrlSimple("Open Sans, 300..800, 75..100, italic")
 //=> https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@1,75..100,300..800&display=auto
-
 ```
 
 #### getGoogleFontsUrl
