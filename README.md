@@ -34,7 +34,7 @@ Gimme **Open Sans**, from **light to bold**, **italic**. **condensed** and **nor
 - **Google Material Symbols**
 	- **Variable Symbols Options**
 - **Google Material Icons**
-- **Validations**
+- **[Validations](#input-validation)**
 - **Examples**
 
 ---
@@ -134,13 +134,44 @@ getGoogleFontsUrlSimple("Open Sans, 300..800, 75..100, italic")
 ```
 
 #### 📜 getGoogleFontsUrl
-
+This function is the full base function to construct the urls.
+	
+- Arguments: An array of objects (Font Families), Display, OnlyThisCharacters
+- Display: `'auto' | 'block' | 'swap' | 'fallback' | 'optional'`
+- OnlyThisCharacters: Optional, string.
+- Font Family Object:
+	- family: Case sensitive font family name, as per Google Fonts website.
+	- styles: Array of Font Styles Objects available to the chosen family.
+	- Font Style Object:
+		- Any number of directive pairs: `<axisDirective>: <axisOption>`
+	
+		- Axis Directive: `wght` (axis symbol) or `weight` (humanized name)
+			- Examples: `ital` or `italic`, `XOPQ` or `thickStroke`
+	
+		- Axis Option: Number, String or Range
+			- Range: `[Number, Number]` or `[String, Number]` or `[String, String]` or `"StrNumber..StrNumber"`
+			- Number: Negative or positive with decimal places accordingly to selected Font
+			- String: Number or Range representation as String.
+	
+![getGoogleFontsUrl picture](https://user-images.githubusercontent.com/6390605/179752075-46b4ba36-acb8-4904-bbc6-3c1f3fd8cd24.jpg)
 
 ```javascript
-
-getGoogleFontsUrlSimple("Roboto Flex,bold&black")
-getGoogleFontsUrlSimple("Roboto Flex,400&500&700,italic")
-
+	
+getGoogleFontsUrl([
+  {
+    family: 'Roboto Flex', 
+    styles: [ 
+      {weight: '100..1000', width: [25, 150], slant: -5, figureHeight: 500},
+    ]
+  },
+  {
+    family: 'Open Sans', 
+    styles: [ 
+      {weight: '400', italic: 1},
+    ]
+  }
+], 'swap', 'abcdefgh')
+	
 getGoogleFontsUrl(
   [
     {
