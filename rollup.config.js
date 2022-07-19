@@ -1,33 +1,67 @@
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
-import replace from "rollup-plugin-replace";
-import babel from 'rollup-plugin-babel';
+//Plugins 
+import { terser } from "rollup-plugin-terser";
 
-const NODE_ENV = process.env.NODE_ENV || "development";
-const outputFile = NODE_ENV === "production" ? "./dist/prod.js" : "./dist/dev.js";
+//Consts
+const outputFileName = 'index'
+const name = 'GoogleFontsCSS2'
 
-export default {
-  input: 'src/index.js',
-  output: [
-    {
-      file: outputFile,
-      format: 'cjs',
-      exports: 'named',
-      sourcemap: true,
-      strict: false
+//Other
+import pack from "./package.json";
+const banner = `// ${pack.name} v${pack.version} Copyright (c) ${new Date().getFullYear()} ${pack.author}`;
+
+//Remove dist folder if it exists, so building is clean.
+import fs from "fs";
+if (fs.existsSync("./dist") && fs.readdirSync("./dist").length){
+  fs.rmSync("./dist", {recursive: true, force: true});
+}
+
+export default [
+  ...exportConfig({ 
+    config: {
+      output: {
+        file: `./dist/esm/${outputFileName}`,
+        format: 'esm',
+        exports: 'named',
+        preferConst: true,
+      }
     }
-  ],
-  plugins: [
-    replace({
-      "process.env.NODE_ENV": JSON.stringify(NODE_ENV)
-    }),
-    babel({
-      exclude: "node_modules/**",
-      presets: ["@babel/preset-env"],
-      plugins: ["@babel/plugin-proposal-class-properties"]
-    }),
-    resolve(),
-    commonjs()
-  ],
-  external: []
+  }),
+  ...exportConfig({ 
+    config: {
+      output: {
+        file: `./dist/umd/${outputFileName}`,
+        format: 'umd',
+        name
+      },
+    }
+  }),
+  ...exportConfig({ 
+    config: {
+      output: {
+        file: `./dist/cjs/${outputFileName}`,
+        format: 'cjs',
+        name
+      },
+    }
+  })
+];
+
+function exportConfig ({ config }) {
+
+  let baseConfig = ({ minify }) => {
+    return {
+      input: './src/index.js',
+      ...config,
+      output: {     
+        ...config.output,
+        file: `${config.output.file}${minify ? '.min.js' : '.js'}`,
+        banner,
+      },
+      plugins: [
+        minify && terser()
+      ]
+    }
+  }
+
+  return [baseConfig({ minify: true }), baseConfig({ minify: false })]
 }

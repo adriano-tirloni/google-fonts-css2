@@ -1,84 +1,202 @@
-# Google Fonts CSS2
+# 📜GOOGLE FONTS CSS 2
+## A Javascript package to integrate with Google Fonts API.
 
-This package is supposed to be an agnostic and fast helper package to interact with Google Fonts API version  2.
+`⚠️If you were using the v1 of this package check the new API below, it is slightly different.⚠️`
 
-**`React Component`: [https://github.com/adriano-tirloni/react-google-fonts-css2](https://github.com/adriano-tirloni/react-google-fonts-css2)**
+- **Single purpose**: To provide an easy interface to create the latest version of a Google Fonts CSS2 URL.
+- No dependencies.
+- It adheres to the rules described on [the current Google Fonts Documentation (CSS2)](https://developers.google.com/fonts/docs/css2 "Google Fonts Documentation (CSS2)").
+- Works on browser and server side (**SSR**).
+- Can create **Material Symbols** and **Material Icons** URLs
 
+Read on for more information. 
+Feel free to open issues or PRs.
 
-### URL Builder:
+------------
 
-URL Builder for V2 has 2 functions:
-`assembleCommom` - working 
-`assembleFull` - to be developed as needed
+##### How it works?
+> **You say**: 
+Gimme **Open Sans**, from **light to bold**, **italic**. **condensed** and **normal**!
 
+> **It answers:**
+[https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@1,75,300..700&family=Open+Sans:ital,wdth,wght@1,100,300..700&display=auto](https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@1,75,300..700&family=Open+Sans:ital,wdth,wght@1,100,300..700&display=auto)
 
-1) **`assembleCommon`**: This function works as described below, and will request fonts with styles varying on **weight** and being **italic**. It was developed to be fast and not to include all possible scenarios. For the full flexible API there is the `assembleFull` function.
+------------
 
+- **[Getting Started](#getting-started)**
+	- **[NodeJS, Browser, Common-JS, ES-Modules](#nodejs-browser-common-js-es-modules)**
+	- **[Functions](#functions)**
+	- **Android, IOS & Flutter**
+- **Google Fonts**
+	- **Regular Fonts**
+	- **Variable Fonts**
+	- **Variable Fonts Options**
+- **Google Material Symbols**
+	- **Variable Symbols Options**
+- **Google Material Icons**
+- **[Validations](#input-validation)**
+- **Examples**
 
-2) **`assembleFull`**: **not developed** - This function will take a different structure from assembleCommon to be able to render the full spec of Google Font API axis:
+---
+## Getting Started
+### NodeJS, Browser, Common-JS, ES-Modules
 
- - Italic - `ital`
- - Optical Size - `opsz`
- - Slant - `slnt`
- - Weight - `wght`
- - Width - `wdth`
-- Casual - `CASL`
-- Cursive - `CRSV`
-- Expression - `XPRN`
-- Grade - `GRAD`
-- Monospace - `MONO`
-- Softness - `SOFT`
-- Wonkiness - `WONK`
+This package is bundled to be used in multiple environments (ESM, CJS, UMD).
+Check the `/dist` folder for enviroment options.
 
-[https://developers.google.com/fonts/docs/css2](https://developers.google.com/fonts/docs/css2)
-[https://fonts.google.com/variablefonts](https://fonts.google.com/variablefonts)
+### Install
 
+```console
+npm i google-fonts-css2
+```
+```console
+yarn add google-fonts-css2
+```
+```html
+<!-- directly in browser, note the /dist/umd path -->
+<script src="https://cdn.jsdelivr.net/npm/google-fonts-css2@2.0.0/dist/umd/index.min.js"></script>
+```
 
-## Usage:
+### Import
+You can seamlessly `import` or `require`:
+
 ```javascript
-const { assembleCommon } =  require("google-fonts-css2"
-//or
-import { assembleCommon } from "google-fonts-css2"
+import { getGoogleFontsUrl, getGoogleFontsUrlSimple } from "google-fonts-css2"
+```
+or
+```javascript
+const { getGoogleFontsUrl, getGoogleFontsUrlSimple } = require("google-fonts-css2")
+```
+or
 
-// assembleCommon(Array:families, String:display)
+`For HTML check the codepen:` [https://codepen.io/adrianotirloni/pen/ExEWbdd](https://codepen.io/adrianotirloni/pen/ExEWbdd)
 
-  let url = assembleCommon([
-    {
-      family: "Cabin",    // Family Name
-      styles: [
-        "600..700",       // Range, if family supports it.
-        "100..200italic", // Range with italic
-        "300italic",      // Weight with italic
-        "regular",        // Shortcut to 400
-        "italic",         // Shortcut to 400 Italic
-        "500",            // Regular with weight
-        444               // Regular weight for variable font
-      ]
-    },
-    {
-      family: "Roboto",   // Family Name - Roboto doesn't support ranges
-      styles: [
-        "300italic",      // Weight with italic
-        "regular",        // Shortcut to 400
-        "italic",         // Shortcut to 400 Italic
-        "500",
-        100
-      ]
-    },
-  ], 'swap')              // Display Style
+### Functions
+#### 📜 getGoogleFontsUrlSimple
+This function calls getGoogleFontsUrl but with simpler argurments and reduced options.
+- Arguments: Any number of strings or objects.
+- Strings: Directive family style strings - All spaces and cases are removed from the string, except for the Font Family name.
+- Objects: Directive family style objects or a options object.
 
+Strings format: "`<case-sensitive-spaced font name>`,`<weights>`,`<?italic> or <?widths>`"
+Objects
+1) Options object: {display: <string>, onlyThisCharacters: <string>}
+2) Font Style object: Same as getGoogleFontsUrl function (this allow full directive request).
+	
+##### Examples (open urls in browser to check it):
+```javascript
+//Open Sans - Named regular weight
+getGoogleFontsUrlSimple('Open Sans, regular')
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=auto
 
-// The output will be:
-"https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,444;0,500;0,600..700;1,100..200;1,300;1,400;1,600..700&family=Roboto:ital,wght@0,100;0,400;0,500;1,300;1,400&display=auto"
+//Open Sans - Named regular weight, with options object
+getGoogleFontsUrlSimple(
+  {display: "swap", onlyThisCharacters: "abcd"}, 
+  "Open Sans, regular"
+)
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap&text=abcd
+
+//Multiple arguments, multiple fonts, unordered
+getGoogleFontsUrlSimple("Open Sans, 300, italic", {display: "swap"}, "Lato, regular")
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&family=Lato:wght@400&display=swap	
+	
+//Open Sans - Numbered regular weight
+getGoogleFontsUrlSimple("Open Sans, 400")
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=auto
+
+//Open Sans - Multiple Named and Numbered weight
+getGoogleFontsUrlSimple("Open Sans, regular & 600")
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Open+Sans:wght@600&display=auto
+
+//Open Sans - Multiple Named weight
+getGoogleFontsUrlSimple("Open Sans, regular & semibold & bold")
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Open+Sans:wght@600&family=Open+Sans:wght@700&display=auto
+
+//Open Sans - Ranged weight
+getGoogleFontsUrlSimple("Open Sans, 300..800")
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=auto
+
+//Open Sans - Regular Italic
+getGoogleFontsUrlSimple("Open Sans, 400, italic")
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,400&display=auto
+
+//Open Sans - Full weight range, italic and named width
+getGoogleFontsUrlSimple("Open Sans, 300..800, italic, condensed & normal")
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@1,75,300..800&family=Open+Sans:ital,wdth,wght@1,100,300..800&display=auto
+
+//Open Sans - Full weight range, WITHOUT italic and named width
+getGoogleFontsUrlSimple("Open Sans, 300..800, condensed & semiCondensed & normal")
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75,300..800&family=Open+Sans:wdth,wght@87.5,300..800&family=Open+Sans:wdth,wght@100,300..800&display=auto
+
+//Open Sans - Full weight range, with italic and full ranged width
+getGoogleFontsUrlSimple("Open Sans, 300..800, 75..100, italic")
+//=> https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@1,75..100,300..800&display=auto
 ```
 
-Check it here: [https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,444;0,500;0,600..700;1,100..200;1,300;1,400;1,600..700&family=Roboto:ital,wght@0,100;0,400;0,500;1,300;1,400&display=auto](https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,444;0,500;0,600..700;1,100..200;1,300;1,400;1,600..700&family=Roboto:ital,wght@0,100;0,400;0,500;1,300;1,400&display=auto)
+#### 📜 getGoogleFontsUrl
+This function is the full base function to construct the urls.
+	
+- Arguments: An array of objects (Font Families), Display, OnlyThisCharacters
+- Display: `'auto' | 'block' | 'swap' | 'fallback' | 'optional'`
+- OnlyThisCharacters: Optional, string.
+- Font Family Object:
+	- family: Case sensitive font family name, as per Google Fonts website.
+	- styles: Array of Font Styles Objects available to the chosen family.
+	- Font Style Object:
+		- Any number of directive pairs: `<axisDirective>: <axisOption>`
+	
+		- Axis Directive: `wght` (axis symbol) or `weight` (humanized name)
+			- Examples: `ital` or `italic`, `XOPQ` or `thickStroke`
+	
+		- Axis Option: Number, String or Range
+			- Range: `[Number, Number]` or `[String, Number]` or `[String, String]` or `"StrNumber..StrNumber"`
+			- Number: Negative or positive with decimal places accordingly to selected Font
+			- String: Number or Range representation as String.
+	
+![getGoogleFontsUrl picture](https://user-images.githubusercontent.com/6390605/179752075-46b4ba36-acb8-4904-bbc6-3c1f3fd8cd24.jpg)
 
-## Example | Test
-Run:
-```bash
-git clone git@github.com:adriano-tirloni/google-fonts-css2.git
-yarn
-yarn build:dev
-node ./src/example.js
+```javascript
+	
+getGoogleFontsUrl([
+  {
+    family: 'Roboto Flex', 
+    styles: [ 
+      {weight: '800..1000', width: [25, 150], slant: -5, figureHeight: 500},
+      {weight: 300},
+      {weight: 400},
+    ]
+  },
+  {
+    family: 'Open Sans', 
+    styles: [ 
+      {weight: '400', italic: 1},
+    ]
+  }
+], 'swap', 'abcdefgh')
+	
+getGoogleFontsUrl(
+  [
+    {
+      family: 'Material Icons',
+      styles: [
+        { wght: '500', wght: '501' }
+      ]
+    }
+  ],
+  'swap'
+)
+      
+getGoogleFontsUrl([
+  {
+    family: 'Roboto Flex',
+    styles: [
+      { weight: '100..500', width: [-10, 0] }
+    ]
+  }
+], 'swap')
 ```
+
+## Input Validation
+- ✅ Validates the existence of the directive axis used. (`weight or wght`, `opticalSize or opsz`)
+- ✅ Ignores duplicate directives (`wght`) and uses the latest one.
+- ❌ Does **not** validate if the font requested has the directive in its options. Eg: If you request **Open Sans**, asking for `slant -10` the URL will properly be created **BUT** Google will return a `400` answer as the **slant** directive is not avaliable for **Open Sans**

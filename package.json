@@ -1,45 +1,50 @@
 {
-  "name": "google-fonts-css2",
-  "version": "1.0.3",
-  "private": false,
-  "description": "A helper package to interact with google fonts API.",
-  "author": "Adriano Tirloni",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/adriano-tirloni/google-fonts-css2.git"
-  },
-  "homepage": "https://github.com/adriano-tirloni/google-fonts-css2",
-  "bugs": {
-    "url": "https://github.com/adriano-tirloni/google-fonts-css2/issues",
-    "email": "tirloni.adriano@gmail.com"
-  },
-  "main": "index.js",
-  "engines": {
-    "node": ">=8",
-    "npm": ">=5"
-  },
-  "scripts": {
-    "prepublishOnly": "yarn release",
-    "release": "yarn build:dev && yarn build:prod",
-    "build:prod": "NODE_ENV=production rollup -c",
-    "build:dev": "NODE_ENV=development rollup -c"
-  },
-  "dependencies": {},
-  "peerDependencies": {},
-  "devDependencies": {
-    "@babel/core": "^7.11.4",
-    "@babel/plugin-proposal-class-properties": "^7.10.4",
-    "@babel/preset-env": "^7.11.0",
-    "babel-loader": "^8.1.0",
-    "rollup": "^1.29.0",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-replace": "^2.2.0"
-  },
-  "files": [
-    "dist"
-  ],
-  "keywords": ["google", "google fonts", "fonts", "css2", "google fonts api", "google fonts url"]
+    "name": "google-fonts-css2",
+    "version": "2.0.0",
+    "description": "A Javascript package to integrate with Google Fonts API.",
+    "author": "Adriano Tirloni",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/adriano-tirloni/google-fonts-css2.git"
+    },
+    "homepage": "https://github.com/adriano-tirloni/google-fonts-css2",
+    "bugs": {
+        "url": "https://github.com/adriano-tirloni/google-fonts-css2/issues",
+        "email": "tirloni.adriano@gmail.com"
+    },
+    "//comment// main & module": "main and module keys are present for backwards compaibility, read on : https://nodejs.org/api/packages.html#dual-commonjses-module-packages",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "exports": {
+        "require":  "./dist/cjs/index.js",
+        "import":   "./dist/esm/index.js"
+    },
+    "scripts": {
+        "examples-esm": "node ./examples/esm/examples.mjs",
+        "examples-cjs": "node ./examples/cjs/examples.cjs",
+        "build": "rollup -c && bash ./postbuild"
+    },
+    "devDependencies": {
+        "rollup": "^2.77.0",
+        "rollup-plugin-terser": "^7.0.2"
+    },
+    "files": [
+        "dist/"
+    ],
+    "keywords": [
+        "google",
+        "google fonts",
+        "fonts",
+        "css2",
+        "variable fonts",
+        "google fonts api",
+        "google fonts url",
+        "material icons",
+        "material symbols"
+    ],
+    "engines": {
+        "node": ">=8",
+        "npm": ">=5"
+    }
 }

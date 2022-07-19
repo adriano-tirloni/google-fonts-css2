@@ -1,0 +1,70 @@
+export const GOOGLE_FONT_API_URI = 'https://fonts.googleapis.com/css2?'
+
+export const AXIS_NAME_MAPPING = {
+    italic: 'ital',
+    opticalSize: 'opsz',
+    slant: 'slnt',
+    weight: 'wght',
+    width: 'wdth',
+    ascenderHeight: 'YTAS',
+    casual: 'CASL',
+    counter_width: 'XTRA',
+    cursive: 'CRSV',
+    descenderDepth: 'YTDE',
+    figureHeight: 'YTFI',
+    fill: 'FILL',
+    grade: 'GRAD',
+    lowercaseHeight: 'YTLC',
+    monospace: 'MONO',
+    softness: 'SOFT',
+    thickStroke: 'XOPQ',
+    thinStroke: 'YOPQ',
+    uppercaseHeight: 'YTUC',
+    wonky: 'WONK',
+    ital: 'ital',
+    opsz: 'opsz',
+    slnt: 'slnt',
+    wght: 'wght',
+    wdth: 'wdth',
+    YTAS: 'YTAS',
+    CASL: 'CASL',
+    XTRA: 'XTRA',
+    CRSV: 'CRSV',
+    YTDE: 'YTDE',
+    YTFI: 'YTFI',
+    FILL: 'FILL',
+    GRAD: 'GRAD',
+    YTLC: 'YTLC',
+    MONO: 'MONO',
+    SOFT: 'SOFT',
+    XOPQ: 'XOPQ',
+    YOPQ: 'YOPQ',
+    YTUC: 'YTUC',
+    WONK: 'WONK'
+}
+
+export const ALPHABET_ORDER = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
+export const WEIGHT_NAME_MAPPING = {
+    thin: 100,
+    extralight: 200,
+    light: 300,
+    regular: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+    extrabold: 800,
+    black: 900,
+  }
+  
+export const WIDTH_NAME_MAPPING = {
+    supercondensed: 25,
+    ultracondensed: 50,
+    extracondensed: 62.5,
+    condensed: 75,
+    semicondensed: 87.5,
+    normal: 100,
+    semiexpanded: 112.5,
+    expanded: 125,
+    extraexpanded: 150,
+  }
