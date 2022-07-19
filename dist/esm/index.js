@@ -1,4 +1,4 @@
-// google-fonts-css2 v2.0.0 Copyright (c) 2022 Adriano Tirloni
+// google-fonts-css2 v2.0.1 Copyright (c) 2022 Adriano Tirloni
 const GOOGLE_FONT_API_URI = 'https://fonts.googleapis.com/css2?';
 
 const AXIS_NAME_MAPPING = {
@@ -9,7 +9,7 @@ const AXIS_NAME_MAPPING = {
     width: 'wdth',
     ascenderHeight: 'YTAS',
     casual: 'CASL',
-    counter_width: 'XTRA',
+    counterWidth: 'XTRA',
     cursive: 'CRSV',
     descenderDepth: 'YTDE',
     figureHeight: 'YTFI',
